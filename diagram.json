@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "author": "Isaque Ribeiro de Andrade",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": -32.05, "left": 70.75, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led_azul",
+      "top": 34.8,
+      "left": -130.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_vermelho",
+      "top": 82.8,
+      "left": -130.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_verde",
+      "top": 130.8,
+      "left": -130.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor_azul",
+      "top": 195.95,
+      "left": -48,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor_vermelho",
+      "top": 215.15,
+      "left": -48,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor_verde",
+      "top": 234.35,
+      "left": -48,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -3.4,
+      "left": -9.6,
+      "attrs": { "color": "black" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "botao:1", "pico:GP0", "green", [] ],
+    [ "botao:2", "pico:GND.2", "black", [] ],
+    [ "led_amarelo:A", "pico:GP12", "green", [ "h124.8", "h0", "v-0.04" ] ],
+    [ "led_verde:A", "pico:GP13", "green", [ "h48", "v0", "h86.4", "v-38.44" ] ],
+    [ "led_vermelho:A", "pico:GP12", "green", [ "v0" ] ],
+    [ "led_azul:A", "pico:GP11", "green", [ "h134.4", "v38.4" ] ],
+    [ "resistor_azul:2", "pico:GND.4", "green", [ "h46.8", "v-57.64" ] ],
+    [ "resistor_vermelho:2", "pico:GND.4", "green", [ "h46.8", "v-76.84" ] ],
+    [ "resistor_verde:2", "pico:GND.4", "black", [ "h46.8", "v-96.04" ] ],
+    [ "resistor_verde:1", "led_verde:C", "green", [ "h-115.2", "v-67.2" ] ],
+    [ "resistor_vermelho:1", "led_vermelho:C", "green", [ "h-115.2", "v-96" ] ],
+    [ "resistor_azul:1", "led_azul:C", "green", [ "h-115.2", "v-124.8" ] ],
+    [ "btn1:1.r", "pico:GND.1", "black", [ "v0" ] ],
+    [ "btn1:2.r", "pico:GP5", "green", [ "v9.8", "h19.4" ] ]
+  ],
+  "dependencies": {}
+}
